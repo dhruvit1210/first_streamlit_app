@@ -3,8 +3,6 @@ import pandas
 import requests
 
 
-
-
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
@@ -35,3 +33,6 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "waterm
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # add to data frame
 streamlit.dataframe(fruityvice_normalized)
+
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+streamlit.write('The user entered ', fruit_choice)
